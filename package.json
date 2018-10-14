@@ -1,0 +1,19 @@
+{
+  "name": "apiexplorer",
+  "version": "1.0.0",
+  "description": "This tool will accept parameters describing an endpoint (values such as url, method, headers, body etc) and produce an html component for sending requests to that endpoint.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allisonc07/APIExplorer.git"
+  },
+  "author": "Allison Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allisonc07/APIExplorer/issues"
+  },
+  "homepage": "https://github.com/allisonc07/APIExplorer#readme"
+}
