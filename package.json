@@ -4,7 +4,8 @@
   "description": "This tool will accept parameters describing an endpoint (values such as url, method, headers, body etc) and produce an html component for sending requests to that endpoint.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,23 @@
   "bugs": {
     "url": "https://github.com/allisonc07/APIExplorer/issues"
   },
-  "homepage": "https://github.com/allisonc07/APIExplorer#readme"
+  "homepage": "https://github.com/allisonc07/APIExplorer#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
 }
