@@ -1,12 +1,12 @@
 import React from 'react';
 
-// import Input from './Input';
+import Input from './Input';
 
 const Body = ({ body, handleSubmit, handleChange, inputValues }) => (
   <form onSubmit={handleSubmit}>
     {
       body && body.map((input) => {
-        return <input {...input} onChange={(event) => { handleChange(event, input.name); }} value={inputValues[input.name] || ''} />;
+        return <Input inputDetails={input} handleChange={handleChange} inputValues={inputValues} />;
       })
     }
     <input type="submit" value="Send Request" />
