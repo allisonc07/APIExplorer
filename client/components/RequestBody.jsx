@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Input from './Input';
+import FormInput from './FormInput';
 
-const Body = ({ body, handleSubmit, handleChange, inputValues }) => (
+const RequestBody = ({ body, handleSubmit, handleChange, inputValues }) => (
   <form onSubmit={handleSubmit}>
     {
       body && body.map((input) => {
-        return <Input key={input.name} inputDetails={input} handleChange={handleChange} inputValues={inputValues} />;
+        return <FormInput key={input.name} inputDetails={input} handleChange={handleChange} inputValues={inputValues} />;
       })
     }
     <input type="submit" value="Send Request" />
   </form>
 );
 
-Body.propTypes = {
+RequestBody.propTypes = {
   body: PropTypes.arrayOf(PropTypes.object),
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   inputValues: PropTypes.object.isRequired,
 };
 
-export default Body;
+export default RequestBody;
