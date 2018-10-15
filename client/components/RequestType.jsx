@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const RequestType = ({ title, method, url }) => {
   var baseUrl = new URL(url);
@@ -19,5 +20,11 @@ const RequestType = ({ title, method, url }) => {
     </div>
   )
 };
+
+RequestType.propTypes = {
+  title: PropTypes.string.isRequired,
+  method: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+}
 
 export default RequestType;
