@@ -4,7 +4,13 @@ import config from '../apiconfig';
 
 import ExplorerComponent from './components/ExplorerComponent';
 
-const { title, url, method, body } = config;
+const {
+  title,
+  url,
+  method,
+  body,
+} = config;
+
 ReactDOM.render(<ExplorerComponent
   title={title}
   url={url}
