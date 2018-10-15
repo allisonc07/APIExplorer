@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import RequestType from './RequestType';
-import Body from './Body';
+import RequestBody from './RequestBody';
 import Response from './Response';
 
 class ExplorerComponent extends React.Component {
@@ -17,8 +18,9 @@ class ExplorerComponent extends React.Component {
   }
 
   createData(body) {
+    const { inputValues } = this.state;
     const data = body.reduce((dataObj, currentObj) => {
-      dataObj[currentObj.name] = this.state.inputValues[currentObj.name];
+      dataObj[currentObj.name] = inputValues[currentObj.name];
       return dataObj;
     }, {});
     return data;
@@ -26,7 +28,6 @@ class ExplorerComponent extends React.Component {
 
   handleChange(event, inputName) {
     const { inputValues } = this.state;
-    console.log(inputValues);
     inputValues[inputName] = event.target.value;
     this.setState({
       inputValues,
@@ -35,41 +36,53 @@ class ExplorerComponent extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    if (this.props.method === 'POST' || this.props.method === 'PUT') {
+    const { url, method, body } = this.props;
+    if (method === 'POST' || method === 'PUT') {
       axios({
-        method: this.props.method,
-        url: this.props.url,
-        data: this.createData(this.props.body)
+        method,
+        url,
+        data: this.createData(body),
       })
         .then((response) => {
           this.setState({
-            response: response.data,
+            response: JSON.stringify(response.data, null, 2),
           });
         });
     } else {
-      axios({
-        method: this.props.method,
-        url: this.props.url,
-      })
+      axios({ method, url })
         .then((response) => {
           this.setState({
-            response: response.data,
+            response: JSON.stringify(response.data, null, 2),
           });
         });
     }
   }
 
   render() {
-    const { title, method, url, body } = this.props;
+    const {
+      title, method, url, body,
+    } = this.props;
     const { response, inputValues } = this.state;
     return (
       <div>
         <RequestType title={title} method={method} url={url} />
-        <Body body={body} handleSubmit={this.handleSubmit} handleChange={this.handleChange} inputValues={inputValues} />
+        <RequestBody
+          body={body}
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          inputValues={inputValues}
+        />
         <Response response={response} />
       </div>
     );
   }
+}
+
+ExplorerComponent.propTypes = {
+  title: PropTypes.string.isRequired,
+  method: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  body: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default ExplorerComponent;

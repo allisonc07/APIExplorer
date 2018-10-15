@@ -4,4 +4,16 @@ import config from '../apiconfig';
 
 import ExplorerComponent from './components/ExplorerComponent';
 
-ReactDOM.render(<ExplorerComponent title={config.title} url={config.url} method={config.method} body={config.body || null} />, document.getElementById('root'));
+const {
+  title,
+  url,
+  method,
+  body,
+} = config;
+
+ReactDOM.render(<ExplorerComponent
+  title={title}
+  url={url}
+  method={method}
+  body={body || null}
+/>, document.getElementById('root'));
