@@ -1,0 +1,9 @@
+.submitButton {
+  background-color: rgb(116, 181, 255);
+  padding: 8px;
+  border: 1px solid rgb(116, 181, 255);
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  border-radius: 6px;
+  color: white;
+}

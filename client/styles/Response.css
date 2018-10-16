@@ -1,0 +1,13 @@
+.responseWrapper {
+  min-height: 100px;
+  width: 600px;
+  background-color: rgb(255, 254, 215);
+  border: 1px solid rgb(100, 100, 100);
+  height: auto important!;
+  border-radius: 3px;
+  padding: 0px, 10px;
+}
+
+.responseText {
+  margin: 10px;
+}

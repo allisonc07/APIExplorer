@@ -5,6 +5,7 @@ import axios from 'axios';
 import RequestType from './RequestType';
 import RequestBody from './RequestBody';
 import Response from './Response';
+import style from '../styles/ExplorerComponent.css';
 
 class ExplorerComponent extends React.Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class ExplorerComponent extends React.Component {
     } = this.props;
     const { response, inputValues } = this.state;
     return (
-      <div>
+      <div className={style.body}>
         <RequestType title={title} method={method} url={url} />
         <RequestBody
           body={body}

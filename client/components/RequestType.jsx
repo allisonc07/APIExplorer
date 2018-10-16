@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import style from '../styles/RequestType.css';
+
 const RequestType = ({ title, method, url }) => {
   var baseUrl = new URL(url);
   return (
     <div>
-      <h1>
+      <h2>
         {title}
-      </h1>
-      <h3>
+      </h2>
+      <h3 className={style.method}>
         {method}
       </h3>
       <h3>
         Base URL
       </h3>
-      <h4>
+      <p>
         {baseUrl.origin}
-      </h4>
+      </p>
     </div>
   )
 };

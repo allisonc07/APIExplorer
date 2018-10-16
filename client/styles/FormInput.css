@@ -1,0 +1,16 @@
+.formInputs {
+  display: block;
+  margin: 15px 2px;
+
+}
+
+.inputFields {
+  width: 250px;
+  display: block;
+  height: 20px;
+  font-family: "Nunito", sans-serif;
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: 1px solid rgb(150, 150, 150);
+}

@@ -1,0 +1,8 @@
+.method {
+  border: 1px solid red;
+  padding: 3px 5px;
+  border-radius: 2px;
+  color: red;
+  width: auto;
+  display: inline;
+}
