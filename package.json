@@ -4,8 +4,9 @@
   "description": "This tool will accept parameters describing an endpoint (values such as url, method, headers, body etc) and produce an html component for sending requests to that endpoint.",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "build": "webpack --watch"
+    "test": "jest --coverage",
+    "build": "webpack --watch",
+    "start": "live-server public"
   },
   "repository": {
     "type": "git",
@@ -24,18 +25,36 @@
     "react-dom": "^16.5.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
+    "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
+    "jest-css-modules-transform": "^2.1.1",
+    "regenerator-runtime": "^0.12.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js",
+    "verbose": true,
+    "moduleNameMapper": {
+      "^.+\\.css$": "identity-obj-proxy"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/client/components/__tests__/sampleData/"
+    ]
   }
 }

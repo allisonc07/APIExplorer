@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import style from '../styles/RequestType.css';
 
 const RequestType = ({ title, method, url }) => {
-  var baseUrl = new URL(url);
+  const fullUrl = new URL(url);
   return (
     <div>
       <h2>
@@ -17,7 +17,7 @@ const RequestType = ({ title, method, url }) => {
         Base URL
       </h3>
       <p>
-        {baseUrl.origin}
+        {fullUrl.origin}
       </p>
     </div>
   )

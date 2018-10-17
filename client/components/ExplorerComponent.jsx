@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 import RequestType from './RequestType';
 import RequestBody from './RequestBody';
 import Response from './Response';
+import utils from '../utils';
 import style from '../styles/ExplorerComponent.css';
 
 class ExplorerComponent extends React.Component {
@@ -16,15 +16,13 @@ class ExplorerComponent extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setResponseOnState = this.setResponseOnState.bind(this);
   }
 
-  createData(body) {
-    const { inputValues } = this.state;
-    const data = body.reduce((dataObj, currentObj) => {
-      dataObj[currentObj.name] = inputValues[currentObj.name];
-      return dataObj;
-    }, {});
-    return data;
+  setResponseOnState(response) {
+    this.setState({
+      response: JSON.stringify(response.data, null, 2),
+    });
   }
 
   handleChange(event, inputName) {
@@ -37,27 +35,16 @@ class ExplorerComponent extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { url, method, body } = this.props;
+    const { url, method } = this.props;
+    const { inputValues } = this.state;
     if (method === 'POST' || method === 'PUT') {
-      axios({
-        method,
-        url,
-        data: this.createData(body),
-      })
-        .then((response) => {
-          this.setState({
-            response: JSON.stringify(response.data, null, 2),
-          });
-        });
+      utils.axiosPostOrPut(method, url, inputValues, this.setResponseOnState);
     } else {
-      axios({ method, url })
-        .then((response) => {
-          this.setState({
-            response: JSON.stringify(response.data, null, 2),
-          });
-        });
+      utils.axiosGetOrDelete(method, url, this.setResponseOnState);
     }
+
   }
+
 
   render() {
     const {

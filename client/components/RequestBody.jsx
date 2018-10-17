@@ -12,7 +12,14 @@ const RequestBody = ({ body, handleSubmit, handleChange, inputValues }) => (
     <form onSubmit={handleSubmit}>
       {
         body && body.map((input) => {
-          return <FormInput key={input.name} inputDetails={input} handleChange={handleChange} inputValues={inputValues} />;
+          return (
+            <FormInput
+              key={input.name}
+              inputDetails={input}
+              handleChange={handleChange}
+              inputValues={inputValues}
+            />
+          );
         })
       }
       <input type="submit" value="Send Request" className={style.submitButton} />
