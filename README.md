@@ -20,7 +20,7 @@ npm install
 
 ## Usage
 
- To provide your own configuration, simply change the `config` object in the `apiconfig.js to an object that follows the following shape:
+ To provide your own configuration, simply change the `config` object in the `apiconfig.js` to an object that follows the following shape:
 
 ```
 {
